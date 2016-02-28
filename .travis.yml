@@ -2,14 +2,9 @@ sudo: required
 language: node_js
 node_js:
 - '0.12'
-before_install:
-- openssl aes-256-cbc -K $encrypted_d379fa330623_key -iv $encrypted_d379fa330623_iv
-  -in secrets.tar.enc -out secrets.tar -d
-- curl https://install.meteor.com/ | sh
-- npm install -g mup
-- openssl aes-256-cbc -K $encrypted_5880cf525281_key -iv $encrypted_5880cf525281_iv
-  -in secrets.tar.enc -out secrets.tar -d
-- tar xvf secrets.tar
 services: mongodb
 after_success:
 - curl -L http://git.io/vqbln | sh
+before_install:
+- openssl aes-256-cbc -K $encrypted_d379fa330623_key -iv $encrypted_d379fa330623_iv
+  -in secrets.tar.enc -out secrets.tar -d
