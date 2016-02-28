@@ -10,8 +10,6 @@ before_install:
 - npm install -g mup
 - tar xvf secrets.tar
 before_script:
-  - "export PATH=$HOME/.meteor:$PATH"
-script:
-- meteor --test ls
+- "export PATH=$HOME/.meteor:$PATH"
 after_success:
 - mup deploy
