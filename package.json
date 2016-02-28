@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "maintainable website",
   "scripts": {
-    "test": "echo \"ECool"
+    "test": "echo \"ECool\""
   },
   "author": "vladimir demidov",
   "license": "MIT"
