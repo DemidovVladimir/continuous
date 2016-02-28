@@ -1,15 +1,9 @@
-sudo: required
 language: node_js
 node_js:
-- '0.12'
-services: mongodb
+  - "0.12"
 before_install:
-- openssl aes-256-cbc -K $encrypted_d379fa330623_key -iv $encrypted_d379fa330623_iv
-  -in secrets.tar.enc -out secrets.tar -d
-- curl https://install.meteor.com/ | sh
-- npm install -g mup
-- tar xvf secrets.tar
-script:
-- meteor --test ls
-after_success:
-- mup deploy
+  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-laika/master/configure.sh | /bin/sh"
+services:
+  - mongodb
+env:
+  - LAIKA_OPTIONS="-t 5000"
