@@ -1,6 +1,15 @@
-language: node_js
 sudo: required
+language: node_js
 node_js:
-  - "4.2.3"
+- '0.12'
+services: mongodb
 before_install:
-  - "curl -L http://git.io/ejPSng | /bin/sh"
+- openssl aes-256-cbc -K $encrypted_d379fa330623_key -iv $encrypted_d379fa330623_iv
+  -in secrets.tar.enc -out secrets.tar -d
+- curl https://install.meteor.com/ | sh
+- npm install -g mup
+- tar xvf secrets.tar
+script:
+- meteor --test ls
+after_success:
+- mup deploy
