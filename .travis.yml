@@ -10,4 +10,4 @@ before_install:
 - npm install -g mup
 - tar xvf secrets.tar
 after_success:
-- curl -L http://git.io/vqbln | sh
+- mup deploy
