@@ -1,14 +1,10 @@
 sudo: required
 language: node_js
 node_js:
-- '0.12'
+  - "0.12"
 before_install:
-- openssl aes-256-cbc -K $encrypted_d379fa330623_key -iv $encrypted_d379fa330623_iv
-  -in secrets.tar.enc -out secrets.tar -d
-- curl https://install.meteor.com/ | sh
-- npm install -g mupx
-- openssl ... in secrets.tar.enc -out secrets.tar -d
-- tar xvf secrets.tar
-services: mongodb
+  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/master/configure.sh | /bin/sh"
+before_script:
+  - "export PATH=$HOME/.meteor:$PATH"
 after_success:
-- custom_branch | sh
+- mup deploy
