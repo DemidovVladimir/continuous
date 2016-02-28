@@ -6,7 +6,7 @@ before_install:
 - curl https://install.meteor.com/ | sh
 - npm install -g mup
 
-- openssl aes-256-cbc -K -in secrets.tar.enc -out secrets.tar -d
+- openssl aes-256-cbc -K $encrypted_5880cf525281_key -iv $encrypted_5880cf525281_iv -in secrets.tar.enc -out secrets.tar -d
 - tar xvf secrets.tar # Decompress secrets.tar
 services: mongodb
 after_success:
