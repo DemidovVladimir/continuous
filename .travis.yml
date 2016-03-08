@@ -7,9 +7,11 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_d379fa330623_key -iv $encrypted_d379fa330623_iv
   -in secrets.tar.enc -out secrets.tar -d
 - curl https://install.meteor.com/ | sh
-- npm install -g mup
 - tar xvf secrets.tar
 before_script:
 - "export PATH=$HOME/.meteor:$PATH"
 after_success:
-- mup deploy
+- apt-get update
+- apt-get install git
+- git clone https://github.com/git/git.git
+- meteor run
