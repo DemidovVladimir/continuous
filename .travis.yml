@@ -8,10 +8,10 @@ before_install:
   -in secrets.tar.enc -out secrets.tar -d
 - curl https://install.meteor.com/ | sh
 - tar xvf secrets.tar
-before_script:
-- "export PATH=$HOME/.meteor:$PATH"
-after_success:
 - apt-get update
 - apt-get install git
 - git clone https://github.com/git/git.git
+before_script:
+- "export PATH=$HOME/.meteor:$PATH"
+after_success:
 - meteor run
